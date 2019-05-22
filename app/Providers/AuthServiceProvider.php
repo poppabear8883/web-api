@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 use App\Policies\AlbumPolicy;
 use App\Contracts\AlbumRepositoryInterface;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->policies[$albumRepository->class()] = AlbumPolicy::class;
 
         $this->registerPolicies();
+
+        Passport::routes();
     }
 }
