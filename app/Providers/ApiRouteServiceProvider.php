@@ -36,6 +36,9 @@ class ApiRouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->apiRoute('auth', 'LoginController')
+            ->addRoute('login', 'validateUser', 'post', 'login');
+
         $this->apiRoute('users', 'UserController')->addDefaultRoutes();
         $this->apiRoute('artists', 'ArtistController')->addDefaultRoutes();
         $this->apiRoute('albums', 'AlbumController')->addDefaultRoutes();
